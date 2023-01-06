@@ -5,12 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class CartController {
+public class OrderController {
 
-    @GetMapping("/cart")
+    @GetMapping("/order")
     public String main(Model model) {
-        model.addAttribute("title", "Shopping Cart");
-        return "cart";
+        model.addAttribute("title", "Order");
+        return "order";
     }
 
 }
