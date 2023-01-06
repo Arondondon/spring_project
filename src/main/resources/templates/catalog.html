@@ -13,7 +13,7 @@
     <div th:each="service : ${services}" class="alert alert-info mt-2">
         <h2 th:text="${service.name}"/>
         <p th:text="${service.description}"/>
-        <h3 th:text="Заказать от ${service.min_price}"/>
+        <h3 th:text="${service.min_price}"/>
     </div>
 </div>
 
