@@ -8,7 +8,14 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<p th:text="'The page named ' + ${title} + '!'" />
+<div class="container mt-5">
+    <h1>Каталог услуг</h1>
+    <div th:each="service : ${services}" class="alert alert-info mt-2">
+        <h2 th:text="${service.name}"/>
+        <p th:text="${service.description}"/>
+        <h3 th:text="Заказать от ${service.min_price}"/>
+    </div>
+</div>
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

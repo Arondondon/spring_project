@@ -12,5 +12,4 @@ public class OrderController {
         model.addAttribute("title", "Order");
         return "order";
     }
-
 }
