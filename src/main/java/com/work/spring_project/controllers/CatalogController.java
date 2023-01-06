@@ -20,4 +20,8 @@ public class CatalogController {
         return "catalog";
     }
 
+    @GetMapping("/catalog/add_service")
+    public String add(Model model) {
+        return "add_service";
+    }
 }
