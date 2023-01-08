@@ -15,6 +15,14 @@ public class Service {
 
     private int min_price;
 
+    public Service() {}
+
+    public Service(String name, String description, int min_price) {
+        this.name = name;
+        this.description = description;
+        this.min_price = min_price;
+    }
+
     public Long getId() {
         return id;
     }
