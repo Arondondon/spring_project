@@ -17,7 +17,7 @@ public class Car {
 
     public Car() {}
 
-    public Car(String name, String description, int min_price, int max_length) {
+    public Car(String name, String description, int max_length, int min_price) {
         this.name = name;
         this.description = description;
         this.min_price = min_price;
