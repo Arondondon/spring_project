@@ -19,6 +19,7 @@
         <h2 th:text="${service.name}"/>
         <p th:text="${service.description}"/>
         <h3 th:text="'Цена от ' + ${service.min_price} + 'р'"/>
+        <a th:href="'/order/' + ${service.id}" class="btn btn-primary">Order service</a>
     </div>
 </div>
 
