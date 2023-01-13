@@ -9,14 +9,14 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "role")
+@Table(name = "user")
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String username;
 
     private String password;
 
@@ -28,6 +28,11 @@ public class User implements UserDetails {
 
     public User() {}
 
+    public User(Long id, String username) {
+        this.id = id;
+        this.username = username;
+    }
+
     public Long getId() {
         return id;
     }
@@ -36,12 +41,12 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String name) {
+        this.username = name;
     }
 
     public void setPassword(String password) {
@@ -72,11 +77,6 @@ public class User implements UserDetails {
     @Override
     public String getPassword() {
         return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
     }
 
     @Override
