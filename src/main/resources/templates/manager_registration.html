@@ -8,7 +8,35 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<p th:text="'The page named ' + ${title} + '!'" />
+<div class="container mt-5">
+
+<form class="form-signin w-50 m-auto" method="post" action="/registration" th:modelAttribute="userForm">
+
+    <h1>Manager Registration</h1>
+
+    <div th:if="${error != null}">
+        <p class="alert alert-danger" role="alert" th:text="${error}" />
+    </div>
+
+    <p>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="">
+    </p>
+    <p>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+    </p>
+    <p>
+        <input type="password" id="passConfirm" name="passConfirm" class="form-control" placeholder="Confirm password" required="">
+    </p>
+    <p>
+        <input type="text" id="email" name="email" class="form-control" placeholder="Email" required="">
+    </p>
+    <p>
+        <input type="text" id="telNumber" name="telNumber" class="form-control" placeholder="Telephone number" required="">
+    </p>
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Sign up</button>
+</form>
+
+</div>
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

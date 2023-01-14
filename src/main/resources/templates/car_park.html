@@ -18,8 +18,8 @@
   <div th:each="car : ${cars}" class="alert alert-info mt-2">
     <h2 th:text="${car.name}"/>
     <p th:text="${car.description}"/>
-    <h3 th:text="'Длина грузов до ' + ${car.max_length} + 'м'"/>
-    <h3 th:text="'Цена от ' + ${car.min_price} + 'р'"/>
+    <h4 th:text="'Load length up to ' + ${car.max_length} + ' meters'"/>
+    <h4 th:text="'Price from ' + ${car.min_price} + ' rubles'"/>
     <a th:href="'/order/' + ${car.id}" class="btn btn-primary">Order car</a>
   </div>
 </div>

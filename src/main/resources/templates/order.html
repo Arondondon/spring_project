@@ -8,7 +8,15 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<p th:text="'The page named ' + ${title} + '!'" />
+<div class="container mt-5 mb-5">
+    <h1>Adding a new service</h1>
+    <form action="/catalog/add_service" method="post">
+        <input type="text" name="name" placeholder="Enter name of service" class="form-control"><br>
+        <textarea name="description" placeholder="Enter description of service" class="form-control"></textarea><br>
+        <input type="number" name="min_price" placeholder="Enter minimum price of service" class="form-control"><br>
+        <button type="submit" class="btn btn-outline-dark btn-lg px-4 gap-3">Add</button>
+    </form>
+</div>
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

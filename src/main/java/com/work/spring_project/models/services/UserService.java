@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public boolean saveUser(User user){
+    public boolean saveUser(User user, int role){
         User other = userRepo.findByUsername(user.getUsername());
 
         if (other != null){
@@ -38,7 +38,11 @@ public class UserService implements UserDetailsService {
         }
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(Collections.singleton(new Role(1L, "USER")));
+        if(role == 1) {
+            user.setRoles(Collections.singleton(new Role(1L, "USER")));
+        } else if(role == 2) {
+            user.setRoles(Collections.singleton(new Role(2L, "MANAGER")));
+        }
         userRepo.save(user);
 
         return true;
