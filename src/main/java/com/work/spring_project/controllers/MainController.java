@@ -16,9 +16,7 @@ public class MainController {
 
     @GetMapping("/")
     public String main(@AuthenticationPrincipal User user, Model model) {
-        if(user != null){
-            model.addAttribute("user",user);
-        }
+        model.addAttribute("user",user);
         model.addAttribute("title", "Home (all)");
         return "main";
     }

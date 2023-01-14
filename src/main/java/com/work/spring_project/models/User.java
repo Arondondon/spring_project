@@ -20,6 +20,8 @@ public class User implements UserDetails {
 
     private String password;
 
+    private String telNumber, email;
+
     @Transient
     private String passConfirm;
 
@@ -67,6 +69,22 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getTelNumber() {
+        return telNumber;
+    }
+
+    public void setTelNumber(String telNumber) {
+        this.telNumber = telNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

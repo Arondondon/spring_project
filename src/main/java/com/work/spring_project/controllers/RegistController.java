@@ -28,15 +28,15 @@ public class RegistController {
     @PostMapping("/registration")
     public String addFromForm(@ModelAttribute("userForm")@Validated User userForm, BindingResult bindingResult, Model model) {
         if(bindingResult.hasErrors()){
-            model.addAttribute("Error", "Binding has errors!");
+            model.addAttribute("error", "Binding has errors!");
             return "registration";
         }
         if(!userForm.getPassword().equals(userForm.getPassConfirm())){
-            model.addAttribute("Error", "Passwords do not match!");
+            model.addAttribute("error", "Passwords do not match!");
             return "registration";
         }
         if(!userService.saveUser(userForm)){
-            model.addAttribute("Error", "User with the same name already exists!");
+            model.addAttribute("error", "User with the same name already exists!");
             return  "registration";
         }
 
