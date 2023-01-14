@@ -8,13 +8,15 @@
             <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
             <li><a href="/catalog" class="nav-link px-2 link-dark">Catalog</a></li>
             <li><a href="/car_park" class="nav-link px-2 link-dark">Car Park</a></li>
-            <li><a href="/order" class="nav-link px-2 link-dark">Order</a></li>
             <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
+            <li><a th:if="${user != null}" href="/order" class="nav-link px-2 link-dark">Order</a></li>
+            <li><a th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" href="/orders" class="nav-link px-2 link-dark">Orders</a></li>
+            <li><a th:if="${user != null && user.isAdmin()} ? ${true} : ${false}" href="/manager_registration" class="nav-link px-2 link-dark">Manager Registration</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-            <a href="/login" type="button" class="btn btn-outline-dark me-2">Sign-in</a>
-            <a href="/logout" type="button" class="btn btn-outline-dark me-2">Sign-out</a>
+            <a th:if="${user == null}" href="/login" type="button" class="btn btn-outline-dark me-2">Sign-in</a>
+            <a th:if="${user != null}" href="/logout" type="button" class="btn btn-outline-dark me-2">Sign-out</a>
             <a href="/registration" type="button" class="btn btn-dark">Sign-up</a>
         </div>
     </header>

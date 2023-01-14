@@ -12,7 +12,7 @@
   <h1>Car Park</h1>
 
   <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
-    <a href="/car_park/add_car" class="btn btn-outline-dark btn-lg px-4 gap-3">Add new car</a>
+    <a th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" href="/car_park/add_car" class="btn btn-outline-dark btn-lg px-4 gap-3">Add new car</a>
   </div>
 
   <div th:each="car : ${cars}" class="alert alert-info mt-2">

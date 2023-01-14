@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @Autowired
-    private UserRepo userRepo;
-
     @GetMapping("/")
     public String main(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("user",user);

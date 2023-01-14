@@ -35,6 +35,22 @@ public class User implements UserDetails {
         this.username = username;
     }
 
+    public String getRole(){
+        return roles.toString().substring(1, roles.toString().length() - 1);
+    }
+
+    public boolean isUser(){
+        return getRole().equals("USER");
+    }
+
+    public boolean isManager(){
+        return getRole().equals("MANAGER");
+    }
+
+    public boolean isAdmin(){
+        return getRole().equals("ADMIN");
+    }
+
     public Long getId() {
         return id;
     }

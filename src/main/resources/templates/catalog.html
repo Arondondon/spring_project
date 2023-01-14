@@ -12,7 +12,7 @@
     <h1>Service catalog</h1>
 
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
-        <a href="/catalog/add_service" class="btn btn-outline-dark btn-lg px-4 gap-3">Add new service</a>
+        <a th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" href="/catalog/add_service" class="btn btn-outline-dark btn-lg px-4 gap-3">Add new service</a>
     </div>
 
     <div th:each="service : ${services}" class="alert alert-info mt-2">

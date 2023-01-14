@@ -1,8 +1,10 @@
 package com.work.spring_project.controllers;
 
 import com.work.spring_project.models.Car;
+import com.work.spring_project.models.User;
 import com.work.spring_project.models.repositories.CarRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +18,16 @@ public class CarParkController {
     private CarRepo carRepo;
 
     @GetMapping("/car_park")
-    public String main(Model model) {
+    public String main(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("user",user);
         Iterable<Car> cars = carRepo.findAll();
         model.addAttribute("cars", cars);
         return "car_park";
     }
 
     @GetMapping("/car_park/add_car")
-    public String add(Model model) {
+    public String add(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("user",user);
         return "add_car";
     }
 

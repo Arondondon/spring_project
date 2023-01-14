@@ -10,7 +10,7 @@
 
 <div th:switch="${user}">
     <p th:case="null" th:text="'Hello!'" />
-    <p th:case="*" th:text="'Hello, ' + ${user.getUsername()} + '!'" />
+    <p th:case="*" th:text="'Hello, ' + ${user.getRole()} + '!'" />
 </div>
 
 <p th:text="'The page named ' + ${title} + '!'" />

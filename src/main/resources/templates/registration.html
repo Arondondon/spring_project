@@ -10,9 +10,8 @@
   <form class="form-signin w-50 m-auto" method="post" action="/registration" th:modelAttribute="userForm">
     <h2 class="form-signin-heading">Please sign up</h2>
 
-    <div th:switch="${error}">
-      <p th:case="null"/>
-      <p class="alert alert-danger" role="alert" th:case="*" th:text="${error}" />
+    <div th:if="${error != null}">
+      <p class="alert alert-danger" role="alert" th:text="${error}" />
     </div>
 
     <p>
