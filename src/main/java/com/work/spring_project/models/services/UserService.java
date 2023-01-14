@@ -11,15 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Collections;
 
 @Service
 public class UserService implements UserDetailsService {
-
-    @PersistenceContext
-    private EntityManager em;
 
     @Autowired
     private UserRepo userRepo;

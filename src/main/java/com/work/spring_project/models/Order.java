@@ -50,10 +50,9 @@ public class Order {
         return calcPrice;
     }
 
-    public Order(Long id, User user, Service service, Car car, String delivery_to,
+    public Order(User user, Service service, Car car, String delivery_to,
                  String delivery_from, String commentary, boolean delivery_out_of_town,
-                 boolean oversized_delivery, int total_price) {
-        this.id = id;
+                 boolean oversized_delivery) {
         this.user = user;
         this.service = service;
         this.car = car;
@@ -62,7 +61,6 @@ public class Order {
         this.commentary = commentary;
         this.delivery_out_of_town = delivery_out_of_town;
         this.oversized_delivery = oversized_delivery;
-        this.total_price = total_price;
     }
 
     public Long getId() {

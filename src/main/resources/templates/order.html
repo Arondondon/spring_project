@@ -9,12 +9,39 @@
 <header th:insert="blocks/header :: header"></header>
 
 <div class="container mt-5 mb-5">
-    <h1>Adding a new service</h1>
-    <form action="/catalog/add_service" method="post">
-        <input type="text" name="name" placeholder="Enter name of service" class="form-control"><br>
-        <textarea name="description" placeholder="Enter description of service" class="form-control"></textarea><br>
-        <input type="number" name="min_price" placeholder="Enter minimum price of service" class="form-control"><br>
-        <button type="submit" class="btn btn-outline-dark btn-lg px-4 gap-3">Add</button>
+    <h1>Order</h1>
+    <form action="/order" method="post">
+
+        <select name="service" class="form-select mb-4" aria-label="Default select example">
+            <div th:each="service : ${services}">
+                <option th:value="${service.id}" th:text="${service.name}"/>
+            </div>
+        </select>
+
+        <select name="car" class="form-select mb-4" aria-label="Default select example">
+            <div th:each="car : ${cars}">
+                <option th:value="${car.id}" th:text="${car.name}"/>
+            </div>
+        </select>
+
+        <input type="text" name="customer" class="form-control mb-4" th:placeholder="${user.username}" disabled>
+        <input type="text" name="tel_number" class="form-control mb-4" th:placeholder="${user.telNumber}" disabled>
+        <input type="text" name="email" class="form-control mb-4" th:placeholder="${user.email}" disabled>
+
+        <input type="text" name="deliveryFrom" class="form-control mb-4" placeholder="Enter address delivery from">
+        <input type="text" name="deliveryTo" class="form-control mb-4" placeholder="Enter address delivery to">
+
+        <input class="form-check-input bg-dark mb-4" type="checkbox" value="" id="outOfTown" name="outOfTown">
+        <label class="form-check-label mb-4" for="outOfTown">Delivery out of town</label>
+
+        <input class="form-check-input bg-dark mb-4" type="checkbox" value="" id="oversized" name="oversized">
+        <label class="form-check-label mb-4" for="oversized">Oversized delivery</label>
+
+        <textarea name="commentary" placeholder="Comment to the order" class="form-control mb-4"></textarea>
+
+        <input type="number" name="totalPrice" id="totalPrice" th:placeholder="1000" class="form-control mb-4" disabled>
+
+        <button type="submit" class="btn btn-outline-dark btn-lg px-4 gap-3">Valide purchase</button>
     </form>
 </div>
 
