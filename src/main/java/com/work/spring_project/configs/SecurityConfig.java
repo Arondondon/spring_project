@@ -47,16 +47,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf()
-                .disable()
+                .cors().disable()
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/manager_registration").hasRole("ADMIN")
-                .antMatchers("/orders", "/car_park/add_car", "/catalog/add_service").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/order").hasAnyRole("ADMIN", "MANAGER", "USER")
+                .antMatchers("/manager_registration").hasAuthority("ADMIN")
+                .antMatchers("/orders", "/car_park/add_car", "/catalog/add_service").hasAnyAuthority("ADMIN", "MANAGER")
+                .antMatchers("/order").hasAnyAuthority("ADMIN", "MANAGER", "USER")
                 .antMatchers("/**").permitAll()
                 .and()
                 .formLogin()
                 .defaultSuccessUrl("/")
+                .permitAll()
                 .and()
                 .logout()
                 .permitAll()

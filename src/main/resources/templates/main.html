@@ -8,6 +8,11 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
+<div th:switch="${user}">
+    <p th:case="null" th:text="'Hello!'" />
+    <p th:case="*" th:text="'Hello, ' + ${user.getUsername()} + '!'" />
+</div>
+
 <p th:text="'The page named ' + ${title} + '!'" />
 
 <div th:insert="blocks/footer :: footer"></div>
