@@ -34,7 +34,10 @@
     <p th:text="'Comment: ' + ${order.commentary}"/>
     <p th:text="'Total price: ' + ${order.total_price}"/>
 
-    <a th:href="'/orders/' + ${order.id}" class="btn btn-primary">Completed</a>
+    <form th:action="'/orders/' + ${order.id}" method="post">
+      <button type="submit" class="btn btn-primary">Completed</button>
+    </form>
+
   </div>
 
 </div>

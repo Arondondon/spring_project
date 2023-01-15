@@ -21,7 +21,8 @@ public class RegistController {
     UserService userService;
 
     @GetMapping("/registration")
-    public String regist(Model model) {
+    public String regist(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("user", user);
         model.addAttribute("userForm", new User());
         return "registration";
     }
