@@ -87,6 +87,7 @@ Spring, БД MySQL, а также с помощью HTML и CSS.
 На главной странице сервиса расположены рекламные 
 баннеры, краткое описание преимуществ компании, а 
 также кнопки для перехода на другие страницы.
+![Alt-text](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/static/images/readme/home1.png)
 ### Catalog
 
 ### Car Park
