@@ -1,7 +1,8 @@
-<div th:fragment="header">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+<div th:fragment="header" class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-0 border-bottom">
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            <img th:src="@{/images/ico.png}" alt="" width="60" height="60" class="rounded circle">
+            <span class="fs-3">CARGOBOB</span>
         </a>
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -10,12 +11,13 @@
             <li><a href="/car_park" class="nav-link px-2 link-dark">Car Park</a></li>
             <li><a href="/about" class="nav-link px-2 link-dark">About</a></li>
             <li><a th:if="${user != null}" href="/order" class="nav-link px-2 link-dark">Order</a></li>
+            <li><a th:if="${user == null}" href="/signin" class="nav-link px-2 link-dark">Order</a></li>
             <li><a th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" href="/orders" class="nav-link px-2 link-dark">Orders</a></li>
             <li><a th:if="${user != null && user.isAdmin()} ? ${true} : ${false}" href="/manager_registration" class="nav-link px-2 link-dark">Manager Registration</a></li>
         </ul>
 
         <div class="col-md-3 text-end">
-            <a th:if="${user == null}" href="/login" type="button" class="btn btn-outline-dark me-2">Sign-in</a>
+            <a th:if="${user == null}" href="/signin" type="button" class="btn btn-outline-dark me-2">Sign-in</a>
             <a th:if="${user != null}" href="/logout" type="button" class="btn btn-outline-dark me-2">Sign-out</a>
             <a href="/registration" type="button" class="btn btn-dark">Sign-up</a>
         </div>

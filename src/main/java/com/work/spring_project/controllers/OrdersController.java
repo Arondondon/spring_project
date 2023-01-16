@@ -31,7 +31,7 @@ public class OrdersController {
     }
 
     @PostMapping("/orders/{id}")
-    public String main(@PathVariable(value = "id")Long id, Model model) {
+    public String delete(@PathVariable(value = "id")Long id, Model model) {
 
         orderRepo.delete(orderRepo.findById(id).get());
 

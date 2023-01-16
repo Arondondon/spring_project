@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,6 +36,14 @@ public class CatalogController {
     public String addFromForm(@RequestParam String name, @RequestParam String description, @RequestParam int min_price, Model model) {
         Service service = new Service(name, description, min_price);
         serviceRepo.save(service);
+        return "redirect:/catalog";
+    }
+
+    @PostMapping("/catalog/{id}")
+    public String delete(@PathVariable(value = "id")Long id, Model model) {
+
+        serviceRepo.delete(serviceRepo.findById(id).get());
+
         return "redirect:/catalog";
     }
 }

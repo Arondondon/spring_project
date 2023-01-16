@@ -15,11 +15,16 @@
         <a th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" href="/catalog/add_service" class="btn btn-outline-dark btn-lg px-4 gap-3">Add new service</a>
     </div>
 
-    <div th:each="service : ${services}" class="alert alert-info mt-2">
+    <div th:each="service : ${services}" class="alert bg-secondary mt-2 text-white">
         <h2 th:text="${service.name}"/>
         <p th:text="${service.description}"/>
-        <h4 th:text="'Price from ' + ${service.min_price} + ' rubles'"/>
-        <a th:href="'/order/' + ${service.id}" class="btn btn-primary">Order service</a>
+        <!--<h4 th:text="'Price from ' + ${service.min_price} + ' rubles'"/>-->
+        <!--<a th:if="${user != null}" th:href="'/order/' + ${service.id}" class="btn btn-primary">Order service</a>-->
+        <a th:if="${user != null}" href="/order" class="btn btn-dark" th:text="'Order service from ' + ${service.min_price} + ' rubles'"/>
+        <a th:if="${user == null}" href="/signin" class="btn btn-dark" th:text="'Order service from ' + ${service.min_price} + ' rubles'"/>
+        <form th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" th:action="'/catalog/' + ${service.id}" method="post" class="text-end">
+            <button type="submit" class="btn btn-dark">Delete</button>
+        </form>
     </div>
 </div>
 

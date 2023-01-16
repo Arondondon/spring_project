@@ -8,7 +8,27 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<p th:text="'The page named ' + ${title} + '!'" />
+<div class="container mt-5">
+    <h1>About</h1>
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <p class="lead">The Cargobob company specializes in auto cargo transportation.
+                We have been working and developing since 2010.
+                <br>We value every client, so the high quality of service is a priority for us.
+                You can always ask your questions by mail or phone and get detailed advice.
+                <br>The management team monitors the constant updating of services, the development
+                of promotions and informing customers about their appearance. Employees are thoroughly
+                trained and constantly improve their skills.</p>
+            <p class="lead">Telephone: 8(812)777-77-77</p>
+            <p class="lead">Email: cargobob.company2023@gmail.com</p>
+            <p class="lead">Telegram: @cargobobcompany</p>
+        </div>
+        <div class="col-md-5">
+            <img th:src="@{/images/map_eng.png}" alt="" width="500" height="500" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto">
+        </div>
+    </div>
+</div>
 
 <div th:insert="blocks/footer :: footer"></div>
 </body>

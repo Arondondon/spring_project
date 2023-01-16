@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
 
 /**
  * Service (choice)
@@ -93,6 +91,7 @@ public class OrderController {
     public String addOrder(Model model) {
         orderRepo.save(curOrder);
 
+        //return "redirect:/send/" + curOrder.getId();
         return "redirect:/";
     }
 

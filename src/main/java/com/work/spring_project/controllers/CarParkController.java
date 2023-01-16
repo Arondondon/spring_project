@@ -8,6 +8,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,6 +36,14 @@ public class CarParkController {
     public String addFromForm(@RequestParam String name, @RequestParam String description, @RequestParam int max_length, @RequestParam int min_price, Model model) {
         Car car = new Car(name, description, max_length, min_price);
         carRepo.save(car);
+        return "redirect:/car_park";
+    }
+
+    @PostMapping("/car_park/{id}")
+    public String delete(@PathVariable(value = "id")Long id, Model model) {
+
+        carRepo.delete(carRepo.findById(id).get());
+
         return "redirect:/car_park";
     }
 }

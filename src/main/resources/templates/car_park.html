@@ -15,12 +15,17 @@
     <a th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" href="/car_park/add_car" class="btn btn-outline-dark btn-lg px-4 gap-3">Add new car</a>
   </div>
 
-  <div th:each="car : ${cars}" class="alert alert-info mt-2">
+  <div th:each="car : ${cars}" class="alert bg-secondary mt-2 text-white">
     <h2 th:text="${car.name}"/>
     <p th:text="${car.description}"/>
     <h4 th:text="'Load length up to ' + ${car.max_length} + ' meters'"/>
-    <h4 th:text="'Price from ' + ${car.min_price} + ' rubles'"/>
-    <a th:href="'/order/' + ${car.id}" class="btn btn-primary">Order car</a>
+    <!--<h4 th:text="'Price from ' + ${car.min_price} + ' rubles'"/>-->
+    <!--<a th:if="${user != null}" th:href="'/order/' + ${car.id}" class="btn btn-primary">Order car</a>-->
+    <a th:if="${user != null}" href="/order" class="btn btn-dark" th:text="'Order car from ' + ${car.min_price} + ' rubles'"/>
+    <a th:if="${user == null}" href="/signin" class="btn btn-dark" th:text="'Order car from ' + ${car.min_price} + ' rubles'"/>
+    <form th:if="${user != null && (user.isManager() || user.isAdmin())} ? ${true} : ${false}" th:action="'/car_park/' + ${car.id}" method="post" class="text-end">
+      <button type="submit" class="btn btn-dark">Delete</button>
+    </form>
   </div>
 </div>
 

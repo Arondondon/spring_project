@@ -11,7 +11,7 @@
 <div class="container mt-5">
   <h1>Orders</h1>
 
-  <div th:each="order : ${orders}" class="alert alert-info mt-2">
+  <div th:each="order : ${orders}" class="alert bg-secondary mt-2 text-white">
     <h2 th:text="'Order id: ' + ${order.id}"/>
     <p th:text="'Service: ' + ${order.service.name}"/>
     <p th:text="'Car: ' + ${order.car.name}"/>
@@ -35,7 +35,7 @@
     <p th:text="'Total price: ' + ${order.total_price}"/>
 
     <form th:action="'/orders/' + ${order.id}" method="post">
-      <button type="submit" class="btn btn-primary">Completed</button>
+      <button type="submit" class="btn btn-dark">Completed</button>
     </form>
 
   </div>
