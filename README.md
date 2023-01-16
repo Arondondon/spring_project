@@ -29,7 +29,7 @@ Spring, БД MySQL, а также с помощью HTML и CSS.
 Структура проекта соответствует схеме MVC. Таким 
 образом, все файлы проекта (за исключением файлов 
 свойств, зависимостей и т.д.) попадают под одну 
-из категорий:[models](#Models), [views](#Views), 
+из категорий: [models](#Models), [views](#Views), 
 [controllers](#Controllers). 
 ### Описание сервиса
 Сервис представляет собой сайт для заказа 
@@ -104,7 +104,7 @@ Spring, БД MySQL, а также с помощью HTML и CSS.
 менеджером или администратором, на странице появляются
 дополнительные возможности по управлению сервисом.
 ![Alt-text](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/static/images/readme/catalog1.png)
-Для пользователей и посетилелей
+Для пользователей и посетителей
 ![Alt-text](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/static/images/readme/catalog2.png)
 Для менеджера и админа
 ### Car Park
