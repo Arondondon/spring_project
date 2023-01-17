@@ -19,6 +19,7 @@
    8. [Sign up](#Sign-up)
    9. [Sign in](#Sign-in)
    10. [Manager Registration](#Manager_registration)
+3. [Как собрать проект](#Как-собрать-проект)
 
 
 ## Структура проекта
@@ -116,7 +117,7 @@ Spring, БД MySQL, а также с помощью HTML и CSS.
 менеджером или администратором, на странице появляются
 дополнительные возможности по управлению сервисом.
 ![Alt-text](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/static/images/readme/carpark1.png)
-Для пользователей и посетилелей
+Для пользователей и посетителей
 ![Alt-text](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/static/images/readme/carpark2.png)
 Для менеджера и админа
 ### About
@@ -157,3 +158,21 @@ Spring, БД MySQL, а также с помощью HTML и CSS.
 того, что зарегистрованный здесь пользователь имеет
 права менеджера.
 ![Alt-text](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/static/images/readme/manreg.png)
+## Как собрать проект
+Чтобы запустить данный проект на своём пк, нужно:
+1. В среде разработки Intellij Idea создать Spring Boot
+проект.
+2. Подключить к проекту данный репозиторий.
+3. Сделать update проекта с репозитория.
+4. В СУБД MySQL создать базу данных.
+5. В файле [application.properties](https://github.com/Arondondon/spring_project/blob/master/src/main/resources/application.properties)
+ввести нужные название базы данных, имя пользователя (стандартно "root")
+и пароль.
+```
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/<название_БД>
+spring.datasource.username=<имя_пользователя>
+spring.datasource.password=<пароль>
+```
+6. После этого можно запускать проект и после 
+успешного запуска открывать в браузере
+[ссылку](http://localhost:8080/)
